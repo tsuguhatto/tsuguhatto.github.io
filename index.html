@@ -16,7 +16,11 @@
     body {
       margin: 0;
       font-family: 'Work Sans', sans-serif;
-      background: var(--bg-color);
+      background-color: var(--bg-color);
+      background-image: url('icon.png');
+      background-repeat: repeat;
+      background-size: 200px;
+      background-position: center;
       color: var(--text-color);
       display: flex;
       align-items: center;
@@ -27,19 +31,13 @@
 
     .container {
       max-width: 800px;
-      background: white;
+      background: rgba(255, 255, 255, 0.92); /* 半透明で背景がやや透ける */
       padding: 40px 30px;
       border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
       text-align: center;
       animation: fadeIn 1.2s ease;
-    }
-
-    header img {
-      width: 400px;
-      height: 400px;
-      object-fit: contain;
-      margin-bottom: 20px;
+      backdrop-filter: blur(2px);
     }
 
     h1 {
@@ -104,21 +102,18 @@
 <body>
 
 <div class="container">
-  <header>
-    <img src="icon.png" alt="Wedding Icon">
-  </header>
 
-  <!-- 🎉 Coming Soon Section -->
-  <div id="comingSoon">
-    <h1>🎉 Coming Soon!</h1>
+  <!-- ��� Coming Soon Section -->
+  <div id="comingSoon" class="hidden">
+    <h1>��� Coming Soon!</h1>
     <p>このページでは、<strong>結婚式中に流れた音楽のセットリスト</strong>をご紹介します。</p>
-    <p>式終了後にご覧いただけます。今はどうぞ式をお楽しみください💐</p>
+    <p>式終了後にご覧いただけます。今はどうぞ式をお楽しみください���</p>
     <p><em>公開予定日時：2025年9月13日（土）20:00（日本時間）</em></p>
   </div>
 
-  <!-- 🎵 セットリスト Section -->
-  <div id="setlist" class="hidden">
-    <h1>🎵 Wedding Setlist</h1>
+  <!-- ��� セットリスト Section -->
+  <div id="setlist">
+    <h1>��� Wedding Setlist</h1>
     <p>ご列席ありがとうございました！以下が式中に流れた音楽です。</p>
 
     <table>
@@ -130,26 +125,28 @@
       <tr><td>退場</td><td>A Thousand Years</td><td>Christina Perri</td></tr>
     </table>
 
-    <h2 style="margin-top: 40px;">🔗 プレイリスト</h2>
+    <h2 style="margin-top: 40px;">��� プレイリスト</h2>
     <ul>
-      <li>🎧 <a href="https://music.apple.com/your_playlist_link" target="_blank">Apple Music</a></li>
-      <li>🎧 <a href="https://open.spotify.com/your_playlist_link" target="_blank">Spotify</a></li>
-      <li>📺 <a href="https://youtube.com/playlist?list=YOUR_LIST_ID" target="_blank">YouTube</a></li>
+      <li>��� <a href="https://music.apple.com/your_playlist_link" target="_blank">Apple Music</a></li>
+      <li>��� <a href="https://open.spotify.com/your_playlist_link" target="_blank">Spotify</a></li>
+      <li>��� <a href="https://youtube.com/playlist?list=YOUR_LIST_ID" target="_blank">YouTube</a></li>
     </ul>
 
     <p style="margin-top: 30px;">音楽とともに、素敵な余韻をお楽しみください✨</p>
   </div>
+
 </div>
 
 <script>
-  const publishTime = new Date("2025-09-13T11:00:00Z");
+  const publishTime = new Date("2025-09-13T11:00:00Z"); // 日本時間20時
   const now = new Date();
 
-  if (true) {
-    document.getElementById("comingSoon").classList.add("hidden");
-    document.getElementById("setlist").classList.remove("hidden");
+  if (now < publishTime) {
+    document.getElementById("setlist").classList.add("hidden");
+    document.getElementById("comingSoon").classList.remove("hidden");
   }
 </script>
 
 </body>
 </html>
+
