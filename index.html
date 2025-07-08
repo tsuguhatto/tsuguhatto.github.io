@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Wedding Setlist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Work+Sans:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-color: #d98c9d;
+      --bg-color: #fef5f5;
+      --text-color: #333;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Work Sans', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 0 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      background: white;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      text-align: center;
+      animation: fadeIn 1.2s ease;
+    }
+
+    header img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--main-color);
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 30px;
+      border-collapse: collapse;
+      font-size: 1rem;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background: #fef0f3;
+      color: var(--main-color);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    ul li {
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+
+    ul li a {
+      color: #336699;
+      text-decoration: none;
+    }
+
+    ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <img src="icon.png" alt="Wedding Icon">
+  </header>
+
+  <!-- 🎉 Coming Soon Section -->
+  <div id="comingSoon">
+    <h1>🎉 Coming Soon!</h1>
+    <p>このページでは、<strong>結婚式中に流れた音楽のセットリスト</strong>をご紹介します。</p>
+    <p>式終了後にご覧いただけます。今はどうぞ式をお楽しみください💐</p>
+    <p><em>公開予定日時：2025年9月13日（土）20:00（日本時間）</em></p>
+  </div>
+
+  <!-- 🎵 セットリスト Section -->
+  <div id="setlist" class="hidden">
+    <h1>🎵 Wedding Setlist</h1>
+    <p>ご列席ありがとうございました！以下が式中に流れた音楽です。</p>
+
+    <table>
+      <tr><th>シーン</th><th>曲名</th><th>アーティスト</th></tr>
+      <tr><td>入場</td><td>Marry You</td><td>Bruno Mars</td></tr>
+      <tr><td>ケーキ入刀</td><td>Sugar</td><td>Maroon 5</td></tr>
+      <tr><td>中座退場</td><td>Count on Me</td><td>Bruno Mars</td></tr>
+      <tr><td>手紙朗読</td><td>Wherever You Will Go</td><td>The Calling</td></tr>
+      <tr><td>退場</td><td>A Thousand Years</td><td>Christina Perri</td></tr>
+    </table>
+
+    <h2 style="margin-top: 40px;">🔗 プレイリスト</h2>
+    <ul>
+      <li>🎧 <a href="https://music.apple.com/your_playlist_link" target="_blank">Apple Music</a></li>
+      <li>🎧 <a href="https://open.spotify.com/your_playlist_link" target="_blank">Spotify</a></li>
+      <li>📺 <a href="https://youtube.com/playlist?list=YOUR_LIST_ID" target="_blank">YouTube</a></li>
+    </ul>
+
+    <p style="margin-top: 30px;">音楽とともに、素敵な余韻をお楽しみください✨</p>
+  </div>
+</div>
+
+<script>
+  const publishTime = new Date("2025-09-13T11:00:00Z");
+  const now = new Date();
+
+  if (now >= publishTime) {
+    document.getElementById("comingSoon").classList.add("hidden");
+    document.getElementById("setlist").classList.remove("hidden");
+  }
+</script>
+
+</body>
+</html>
