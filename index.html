@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <title>Wedding Setlist</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- フォント -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Work+Sans:wght@300;500&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -17,43 +17,57 @@
       margin: 0;
       font-family: 'Work Sans', sans-serif;
       background-color: var(--bg-color);
-      background-image: url('icon.png');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-attachment: fixed; /* ← スクロールしても背景が固定 */
-      background-size: 400px;
       color: var(--text-color);
-      min-height: 100vh;
-      padding: 60px 20px;
-      animation: fadeInPage 1.5s ease-in-out both;
+      overflow-x: hidden;
     }
 
-    @keyframes fadeInPage {
+    .icon-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('icon.png') no-repeat center center;
+      background-size: 200px;
+      background-color: var(--bg-color);
+      z-index: 100;
+      animation: fadeOutIcon 2s ease 1s forwards;
+    }
+
+    @keyframes fadeOutIcon {
+      0% { opacity: 1; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+
+    .icon-corner {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      width: 60px;
+      height: 60px;
+      background: url('icon.png') no-repeat center center;
+      background-size: contain;
+      z-index: 10;
+      opacity: 0;
+      animation: fadeInCorner 3s ease 2s forwards;
+    }
+
+    @keyframes fadeInCorner {
       from { opacity: 0; }
       to { opacity: 1; }
     }
 
     .container {
       max-width: 800px;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 40px 30px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      text-align: center;
-      animation: slideUp 1.2s ease 0.3s both;
-      backdrop-filter: blur(2px);
       margin: 0 auto;
+      padding: 80px 20px 40px;
+      text-align: center;
+      animation: fadeInPage 2s ease 2s both;
     }
 
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes fadeInPage {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
@@ -78,6 +92,7 @@
     th, td {
       padding: 12px;
       border-bottom: 1px solid #ddd;
+      vertical-align: top;
     }
 
     th {
@@ -85,68 +100,166 @@
       color: var(--main-color);
     }
 
-    ul {
+    .song-list {
       list-style: none;
       padding: 0;
-      margin-top: 20px;
+      margin: 0;
+      text-align: left;
     }
 
-    ul li {
-      margin: 10px 0;
-      font-size: 1.1rem;
+    .song-list li {
+      font-size: 1rem;
+      margin: 6px 0;
     }
 
-    ul li a {
+    .song-list li a {
       color: #336699;
       text-decoration: none;
     }
 
-    ul li a:hover {
+    .song-list li a:hover {
       text-decoration: underline;
     }
 
-    .hidden {
-      display: none;
+    ul.playlist-links {
+      list-style: none;
+      padding: 0;
+      margin-top: 30px;
+    }
+
+    ul.playlist-links li {
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+
+    ul.playlist-links li a {
+      color: #336699;
+      text-decoration: none;
+    }
+
+    ul.playlist-links li a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.6rem; }
+      table { font-size: 0.95rem; }
     }
   </style>
 </head>
 <body>
 
+<div class="icon-overlay"></div>
+<div class="icon-corner"></div>
+
 <div class="container">
+  <h1>Wedding Setlist</h1>
+  <p>
+    本日は私たちの結婚式にご出席いただき、誠にありがとうございました。<br>
+    大切な皆さまと過ごしたひとときは、私たちにとってかけがえのない宝物です。<br>
+    式の中で流れた音楽を、思い出とともにぜひお楽しみください。
+  </p>
 
-  <div id="setlist">
-    <h1>Wedding Setlist</h1>
-    <p>ご列席ありがとうございました！以下が式中に流れた音楽です。</p>
+  <table>
+    <tr><th>シーン</th><th>楽曲</th></tr>
+    <tr>
+      <td>入場</td>
+      <td>
+        <ul class="song-list">
+          <li><a href="https://open.spotify.com/track/1fvN94fC1qXzWWiF9oUYpG" target="_blank">Ob-La-Di, Ob-La-Da</a> / The Beatles</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>乾杯</td>
+      <td>
+        <ul class="song-list">
+          <li><a href="https://open.spotify.com/track/2iuZJX9X9P0GKaE93xcPjk" target="_blank">Sugar</a> / Maroon 5</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>ケーキ入刀</td>
+      <td>
+        <ul class="song-list">
+          <li><a href="https://open.spotify.com/track/6tVg2Wl7zk4FqKkqG8Pyj2" target="_blank">Paper Rings</a> / Taylor Swift</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>新婦中座</td>
+      <td>
+        <ul class="song-list">
+          <li><a href="https://open.spotify.com/track/2UuBTLwQchUdxZwJfQwI2Y" target="_blank">Another Day of Sun</a> / La La Land Cast</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>新郎中座</td>
+      <td>
+        <ul class="song-list">
+          <li><a href="https://open.spotify.com/track/1tqhsYv8yBBdwANFNzHtcr" target="_blank">You've Got a Friend in Me</a> / Randy Newman</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>再入場</td>
+      <td>
+        <ul class="song-list">
+          <li><a href="https://open.spotify.com/track/5kRZ6EERXcNnuyc9wRSlcc" target="_blank">Les Champs-Élysées</a> / Joe Dassin</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>クイズ</td>
+      <td>
+        <ul class="song-list">
+          <li><a href="https://open.spotify.com/track/7aODVyX2gfpD3b6MuU6tB7" target="_blank">Saturday Night</a> / Bay City Rollers</li>
+          <li><a href="https://open.spotify.com/track/2SiXAy7TuUkycRVbbWDEpo" target="_blank">Sugar Baby Love</a> / The Rubettes</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>テーブルラウンド</td>
+      <td>
+        <ul class="song-list">
+          <li><a href="https://open.spotify.com/track/5jzKL4BDMClWqRguW5qZvh" target="_blank">September</a> / Earth, Wind & Fire</li>
+          <li><a href="https://open.spotify.com/track/0PpCnmJqQbFztZ1Hx9fVKD" target="_blank">Cheeze (feat. Andrew Kang)</a> / Sarah Kang</li>
+          <li><a href="https://open.spotify.com/track/1tqnwLk3kyQY9L3qxidSOb" target="_blank">I Want You Back</a> / The Jackson 5</li>
+          <li><a href="https://open.spotify.com/track/0nJW01T7XtvILxQgC5J7Wh" target="_blank">Marry You</a> / Bruno Mars</li>
+          <li><a href="https://open.spotify.com/track/60nZcImufyMA1MKQY3dcCH" target="_blank">Happy</a> / Pharrell Williams</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>記念品贈呈</td>
+      <td>
+        <ul class="song-list">
+          <li><a href="https://open.spotify.com/track/2eQQeT9HBkD9GHG3z8qj3S" target="_blank">Hometown</a> / Sheppard</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>退場</td>
+      <td>
+        <ul class="song-list">
+          <li><a href="https://open.spotify.com/track/3v3hAqYfxv1I2X15rE9dYd" target="_blank">Top of the World</a> / Carpenters</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
 
-    <table>
-      <tr><th>シーン</th><th>曲名</th><th>アーティスト</th></tr>
-      <tr><td>入場</td><td>Marry You</td><td>Bruno Mars</td></tr>
-      <tr><td>ケーキ入刀</td><td>Sugar</td><td>Maroon 5</td></tr>
-      <tr><td>中座退場</td><td>Count on Me</td><td>Bruno Mars</td></tr>
-      <tr><td>手紙朗読</td><td>Wherever You Will Go</td><td>The Calling</td></tr>
-      <tr><td>退場</td><td>A Thousand Years</td><td>Christina Perri</td></tr>
-    </table>
+  <h2 style="margin-top: 40px;">プレイリスト</h2>
+  <ul class="playlist-links">
+    <li><a href="https://music.apple.com/jp/playlist/wedding-setlist/pl.u-vxy6k1Ysk3bbrL" target="_blank">Apple Music</a></li>
+    <li><a href="https://open.spotify.com/playlist/your_playlist_link" target="_blank">Spotify</a></li>
+    <li><a href="https://youtube.com/playlist?list=YOUR_LIST_ID" target="_blank">YouTube</a></li>
+  </ul>
 
-    <h2 style="margin-top: 40px;">プレイリスト</h2>
-    <ul>
-      <li><a href="https://music.apple.com/jp/playlist/wedding-setlist/pl.u-vxy6k1Ysk3bbrL" target="_blank">Apple Music</a></li>
-      <li><a href="https://open.spotify.com/your_playlist_link" target="_blank">Spotify</a></li>
-      <li><a href="https://youtube.com/playlist?list=YOUR_LIST_ID" target="_blank">YouTube</a></li>
-    </ul>
-
-    <p style="margin-top: 30px;">音楽とともに、素敵な余韻をお楽しみください。</p>
-  </div>
-
+  <p style="margin-top: 30px;">
+    今後とも私たちふたりを、どうぞよろしくお願いいたします。
+  </p>
 </div>
-<script>
-  const publishTime = new Date("2025-09-13T11:00:00Z"); // 日本時間20時
-  const now = new Date();
-  // 常にセットリスト表示でOK
-  if (true) {
-    document.getElementById("comingSoon").classList.add("hidden");
-    document.getElementById("setlist").classList.remove("hidden");
-  }
-</script>
+
 </body>
 </html>
-
