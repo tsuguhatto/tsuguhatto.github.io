@@ -28,7 +28,7 @@
       width: 100%;
       height: 100%;
       background: url('icon.png') no-repeat center center;
-      background-size: 800px;
+      background-size: 700px;
       background-color: var(--bg-color);
       z-index: 100;
       animation: fadeOutIcon 2s ease 1s forwards;
@@ -40,11 +40,11 @@
     }
 
     .icon-corner {
-      position: fixed;
+      position: absolute;
       top: 10px;
       left: 10px;
-      width: 200px;
-      height: 200px;
+      width: 120px;
+      height: 120px;
       background: url('icon.png') no-repeat center center;
       background-size: contain;
       z-index: 10;
@@ -63,6 +63,7 @@
       padding: 80px 20px 40px;
       text-align: center;
       animation: fadeInPage 2s ease 2s both;
+      position: relative;
     }
 
     @keyframes fadeInPage {
@@ -150,9 +151,9 @@
 <body>
 
 <div class="icon-overlay"></div>
-<div class="icon-corner"></div>
 
 <div class="container">
+  <div class="icon-corner"></div>
   <h1>Wedding Party Setlist</h1>
   <p>
     本日は私たちの結婚式にご出席いただき 誠にありがとうございました<br>
@@ -257,7 +258,7 @@
   </ul>
 
   <p style="margin-top: 30px;">
-    今後とも私たちふたりを、どうぞよろしくお願いいたします。
+    今後とも私たちふたりを　どうぞよろしくお願いいたします
   </p>
 </div>
 
