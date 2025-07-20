@@ -31,11 +31,14 @@
       background-size: 700px;
       background-color: var(--bg-color);
       z-index: 100;
-      animation: fadeOutIcon 2s ease 1s forwards;
+      animation: fadeInOutIcon 3s ease forwards;
+      pointer-events: none;
     }
 
     @keyframes fadeOutIcon {
-      0% { opacity: 1; }
+      0% { opacity: 0; }
+      33% { opacity: 1;}
+      66% { opacity: 1; }
       100% { opacity: 0; visibility: hidden; }
     }
 
