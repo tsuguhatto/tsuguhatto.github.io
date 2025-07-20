@@ -41,6 +41,16 @@
       100% { opacity: 0; visibility: hidden; }
     }
 
+    /* 👇 追加：左上のロゴ画像 */
+    .top-left-image {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 80px;
+      height: auto;
+      z-index: 1;
+      opacity: 0.8;
+    }
 
     .container {
       max-width: 800px;
@@ -130,12 +140,21 @@
     @media (max-width: 600px) {
       h1 { font-size: 1.6rem; }
       table { font-size: 0.95rem; }
+      .top-left-image {
+        width: 60px;
+        top: 15px;
+        left: 15px;
+      }
     }
   </style>
 </head>
 <body>
 
+<!-- 👇 左上ロゴ画像（自然にスクロールで消える） -->
+<img src="icon-top-left.png" alt="icon" class="top-left-image">
+
 <div class="icon-overlay"></div>
+
 <div class="container">
   <h1>Wedding Party Setlist</h1>
   <p>
@@ -247,3 +266,4 @@
 
 </body>
 </html>
+
