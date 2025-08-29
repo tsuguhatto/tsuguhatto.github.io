@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -41,31 +41,20 @@
       100% { opacity: 0; visibility: hidden; }
     }
 
-    /* 👇 追加：左上のロゴ画像 */
-    .top-left-image {
+    .top-left-image, .top-right-image {
       position: absolute;
       top: 20px;
-      left: 20px;
       width: 300px;
       height: auto;
       z-index: 1;
       opacity: 0;
       animation: fadeInPage 2s ease 1.5s forwards;
     }
-
-    .top-right-image {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 300px;
-      height: auto;
-      z-index: 1;
-      opacity: 0;
-      animation: fadeInPage 2s ease 1.5s forwards;
-    }
+    .top-left-image { left: 20px; }
+    .top-right-image { right: 20px; }
 
     .container {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 80px 20px 40px;
       text-align: center;
@@ -94,13 +83,14 @@
       width: 100%;
       margin-top: 30px;
       border-collapse: collapse;
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
 
     th, td {
-      padding: 12px;
+      padding: 10px;
       border-bottom: 1px solid #ddd;
-      vertical-align: top;
+      vertical-align: middle;
+      text-align: center;
     }
 
     th {
@@ -108,177 +98,242 @@
       color: var(--main-color);
     }
 
-    .song-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: left;
-    }
-
-    .song-list li {
-      font-size: 1rem;
-      margin: 6px 0;
-    }
-
-    .song-list li a {
+    td a {
       color: #336699;
       text-decoration: none;
     }
-
-    .song-list li a:hover {
-      text-decoration: underline;
-    }
-
-    ul.playlist-links {
-      list-style: none;
-      padding: 0;
-      margin-top: 30px;
-    }
-
-    ul.playlist-links li {
-      margin: 10px 0;
-      font-size: 1.1rem;
-    }
-
-    ul.playlist-links li a {
-      color: #336699;
-      text-decoration: none;
-    }
-
-    ul.playlist-links li a:hover {
-      text-decoration: underline;
-    }
+    td a:hover { text-decoration: underline; }
 
     @media (max-width: 600px) {
       h1 { font-size: 1.6rem; }
-      table { font-size: 0.95rem; }
-      .top-left-image {
-        width: 100px;
-        top: 15px;
-        left: 15px;
-      }
-      .top-right-image {
-        width: 100px;
-        top: 15px;
-        right: 15px;
-      }
-      
+      table { font-size: 0.8rem; }
+      .top-left-image, .top-right-image { width: 100px; top: 15px; }
     }
   </style>
 </head>
 <body>
 
-<!-- 👇 左上ロゴ画像（自然にスクロールで消える） -->
 <img src="icon.png" alt="icon" class="top-left-image">
 <img src="icon.png" alt="icon" class="top-right-image">
 <div class="icon-overlay"></div>
 
 <div class="container">
-  <h1>Wedding Party Setlist</h1>
+  <h1>T&Y’s Wedding Party Playlist</h1>
   <p>
     本日は私たちの結婚式にご出席いただき 誠にありがとうございました<br>
     大切な皆さまと過ごしたひとときは 私たちにとってかけがえのない宝物です<br>
     式の中で流れた音楽を 思い出とともにぜひお楽しみください
   </p>
 
-  <table>
-    <tr><th>シーン</th><th>楽曲</th></tr>
-    <tr>
-      <td>入場</td>
-      <td>
-        <ul class="song-list">
-          <li><a href="https://open.spotify.com/track/1fvN94fC1qXzWWiF9oUYpG" target="_blank">Ob-La-Di, Ob-La-Da</a> / The Beatles</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>乾杯</td>
-      <td>
-        <ul class="song-list">
-          <li><a href="https://open.spotify.com/track/2iuZJX9X9P0GKaE93xcPjk" target="_blank">Sugar</a> / Maroon 5</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>ケーキ入刀</td>
-      <td>
-        <ul class="song-list">
-          <li><a href="https://open.spotify.com/track/6tVg2Wl7zk4FqKkqG8Pyj2" target="_blank">Paper Rings</a> / Taylor Swift</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>新婦中座</td>
-      <td>
-        <ul class="song-list">
-          <li><a href="https://open.spotify.com/track/2UuBTLwQchUdxZwJfQwI2Y" target="_blank">Another Day of Sun</a> / La La Land Cast</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>新郎中座</td>
-      <td>
-        <ul class="song-list">
-          <li><a href="https://open.spotify.com/track/1tqhsYv8yBBdwANFNzHtcr" target="_blank">You've Got a Friend in Me</a> / Randy Newman</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>再入場</td>
-      <td>
-        <ul class="song-list">
-          <li><a href="https://open.spotify.com/track/5kRZ6EERXcNnuyc9wRSlcc" target="_blank">Les Champs-Élysées</a> / Joe Dassin</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>クイズ</td>
-      <td>
-        <ul class="song-list">
-          <li><a href="https://open.spotify.com/track/7aODVyX2gfpD3b6MuU6tB7" target="_blank">Saturday Night</a> / Bay City Rollers</li>
-          <li><a href="https://open.spotify.com/track/2SiXAy7TuUkycRVbbWDEpo" target="_blank">Sugar Baby Love</a> / The Rubettes</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>テーブルラウンド</td>
-      <td>
-        <ul class="song-list">
-          <li><a href="https://open.spotify.com/track/5jzKL4BDMClWqRguW5qZvh" target="_blank">September</a> / Earth, Wind & Fire</li>
-          <li><a href="https://open.spotify.com/track/0PpCnmJqQbFztZ1Hx9fVKD" target="_blank">Cheeze (feat. Andrew Kang)</a> / Sarah Kang</li>
-          <li><a href="https://open.spotify.com/track/1tqnwLk3kyQY9L3qxidSOb" target="_blank">I Want You Back</a> / The Jackson 5</li>
-          <li><a href="https://open.spotify.com/track/0nJW01T7XtvILxQgC5J7Wh" target="_blank">Marry You</a> / Bruno Mars</li>
-          <li><a href="https://open.spotify.com/track/60nZcImufyMA1MKQY3dcCH" target="_blank">Happy</a> / Pharrell Williams</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>記念品贈呈</td>
-      <td>
-        <ul class="song-list">
-          <li><a href="https://open.spotify.com/track/2eQQeT9HBkD9GHG3z8qj3S" target="_blank">Hometown</a> / Sheppard</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>退場</td>
-      <td>
-        <ul class="song-list">
-          <li><a href="https://open.spotify.com/track/3v3hAqYfxv1I2X15rE9dYd" target="_blank">Top of the World</a> / Carpenters</li>
-        </ul>
-      </td>
-    </tr>
-  </table>
+<table>
+  <tr>
+    <th>Scene</th>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Link</th>
+  </tr>
+  <tr>
+    <td>オープニングムービー</td>
+    <td>はじめてのチュウ</td>
+    <td>Platica Jazz</td>
+    <td>
+      <a href="https://youtu.be/gdV7jLIvws8?si=KdWKtO0TdPn62zIW" target="_blank">YouTube</a> /
+      <a href="https://open.spotify.com/track/2sIiLOvj2A5zOmua1bTywX?si=udrSY4zIQECjSNi50YEF3w" target="_blank">Spotify</a> /
+      <a href="https://music.apple.com/jp/album/399592162?i=399592163" target="_blank">Apple Music</a> /
+      <a href="https://music.amazon.co.jp/albums/B00BUUWE76?trackAsin=B00BUUWEPI" target="_blank">Amazon Music</a>
+    </td>
+  </tr>
+  <tr>
+    <td>入場</td>
+    <td>Ob-La-Di, Ob-La-Da</td>
+    <td>The Beatles</td>
+    <td>
+      <a href="https://youtu.be/_J9NpHKrKMw?si=t5qxUJ3Z7NsFRm-q" target="_blank">YouTube</a> /
+      <a href="https://open.spotify.com/track/3danaswvdD7sSz1ERKNfxh" target="_blank">Spotify</a> /
+      <a href="https://music.apple.com/jp/album/1441133100?i=1441133282" target="_blank">Apple Music</a> /
+      <a href="https://music.amazon.co.jp/albums/B0CLGTZW4H?trackAsin=B0CLGY5NP7" target="_blank">Amazon Music</a>
+    </td>
+  </tr>
+  <tr>
+    <td>乾杯</td>
+    <td>Sugar</td>
+    <td>Maroon 5</td>
+    <td>
+      <a href="https://youtu.be/09R8_2nJtjg?si=3kbdyGf1PYYHYGbl" target="_blank">YouTube</a> /
+      <a href="https://open.spotify.com/track/6eV7eK07znOHcKz3bzEmpS" target="_blank">Spotify</a> /
+      <a href="https://music.apple.com/jp/album/1440826252?i=1440826558" target="_blank">Apple Music</a> /
+      <a href="https://music.amazon.co.jp/albums/B011N17GJW?trackAsin=B011N17S72" target="_blank">Amazon Music</a>
+    </td>
+  </tr>
+  <tr>
+    <td>ケーキ入刀</td>
+    <td>Paper Rings</td>
+    <td>Taylor Swift</td>
+    <td>
+      <a href="https://youtu.be/8zdg-pDF10g?si=5MRBjDREWxE6hJbF" target="_blank">YouTube</a> /
+      <a href="https://open.spotify.com/track/4y5bvROuBDPr5fuwXbIBZR" target="_blank">Spotify</a> /
+      <a href="https://music.apple.com/jp/album/1468058165?i=1468058181" target="_blank">Apple Music</a> /
+      <a href="https://music.amazon.co.jp/albums/B07SYZCMXC?trackAsin=B07SYZWV3G" target="_blank">Amazon Music</a>
+    </td>
+  </tr>
+  <tr>
+    <td>新婦中座</td>
+    <td>Another Day Of Sun</td>
+    <td>La La Land Cast</td>
+    <td>
+      <a href="https://youtu.be/cZAw8qxn0ZE" target="_blank">YouTube</a> /
+      <a href="https://open.spotify.com/track/7tBqAoOhF7rxWbIpT2yOn6" target="_blank">Spotify</a> /
+      <a href="https://music.apple.com/jp/album/1440895872?i=1440895879" target="_blank">Apple Music</a> /
+      <a href="https://music.amazon.co.jp/albums/B06WGLRS8W?trackAsin=B06W9FBLQ2" target="_blank">Amazon Music</a>
+    </td>
+  </tr>
+  <tr>
+    <td>新郎中座</td>
+    <td>You’ve Got a Friend in Me</td>
+    <td>Randy Newman</td>
+    <td>
+      <a href="https://youtu.be/0hG-2tQtdlE?si=heASMTICNGivB0ia" target="_blank">YouTube</a> /
+      <a href="https://open.spotify.com/track/2stkLJ0JNcXkIRDNF3ld6c" target="_blank">Spotify</a> /
+      <a href="https://music.apple.com/jp/album/1452873008?i=1452873021" target="_blank">Apple Music</a> /
+      <a href="https://music.amazon.co.jp/albums/B07PR3ZNS5?trackAsin=B07PPZNYS8" target="_blank">Amazon Music</a>
+    </td>
+  </tr>
+  <tr>
+    <td>プロフィールムービー</td>
+    <td>Saturday in the Park</td>
+    <td>Chicago</td>
+    <td>
+      <a href="https://youtu.be/HjylD7esXDo?si=D_XY4sOiL9ZyjAVH" target="_blank">YouTube</a> /
+      <a href="https://open.spotify.com/track/4OJFkrRQqol4FsPesF8eu4" target="_blank">Spotify</a> /
+      <a href="https://music.apple.com/jp/album/28055262?i=28055282" target="_blank">Apple Music</a> /
+      <a href="https://music.amazon.co.jp/albums/B009ZFPAI8?trackAsin=B009ZFPIB2" target="_blank">Amazon Music</a>
+    </td>
+  </tr>
+  <tr>
+    <td>再入場</td>
+    <td>Les Champs-Elysées</td>
+    <td>Joe Dassin</td>
+    <td>
+      <a href="https://youtu.be/tDWeLlvYyYU?si=5UD9uI34FYb0R2lR" target="_blank">YouTube</a> /
+      <a href="https://open.spotify.com/track/4VWbPQUPvLes814r6T11Jz" target="_blank">Spotify</a> /
+      <a href="https://music.apple.com/jp/album/311331439?i=311331447" target="_blank">Apple Music</a> /
+      <a href="https://music.amazon.co.jp/albums/B076P5BXLR?trackAsin=B076P42T77" target="_blank">Amazon Music</a>
+    </td>
+  </tr>
+  <tr>
+    <td>ドレス当てクイズ</td>
+    <td>おジャ魔女カーニバル!!</td>
+    <td>MAHO堂</td>
+    <td>
+      <a href="https://youtu.be/QDzrUpJAymw" target="_blank">YouTube</a> /
+      <a href="https://open.spotify.com/track/63CbmTcrmJlFYSehryyG48" target="_blank">Spotify</a> /
+      <a href="https://music.apple.com/jp/album/1537920833?i=1537920834" target="_blank">Apple Music</a> /
+      <a href="#" target="_blank">Amazon Music</a>
+    </td>
+  </tr>
+  <tr>
+    <td>テーブルラウンド</td>
+    <td>Wouldn’t It Be Nice</td>
+    <td>The Beach Boys</td>
+    <td>
+      <a href="https://youtu.be/5lP8BZcyoEQ?si=mMuQ-d3KVjyPqZbA" target="_blank">YouTube</a> /
+      <a href="https://open.spotify.com/track/4IHc6SzGPnzSPuHVEPzpJc" target="_blank">Spotify</a> /
+      <a href="https://music.apple.com/jp/album/1567705492?i=1567706782" target="_blank">Apple Music</a> /
+      <a href="https://music.amazon.co.jp/albums/B0045ORHJY?trackAsin=B0045OTG3E" target="_blank">Amazon Music</a>
+    </td>
+  </tr>
+  <tr>
+    <td>テーブルラウンド</td>
+    <td>Cheeze</td>
+    <td>Sarah Kang, Andrew Kang</td>
+    <td>
+      <a href="https://youtu.be/VYJAXO_1p40?si=p_xHdmpTgKbi88JX" target="_blank">YouTube</a> /
+      <a href="https://open.spotify.com/track/6JQfQXQ2xdZD6x516xNRJI" target="_blank">Spotify</a> /
+      <a href="https://music.apple.com/jp/album/1607309517?i=1607309520" target="_blank">Apple Music</a> /
+      <a href="https://music.amazon.co.jp/albums/B0BFTFBVZ7?trackAsin=B0BFVGXY43" target="_blank">Amazon Music</a>
+    </td>
+  </tr>
+  <tr>
+    <td>テーブルラウンド</td>
+    <td>I Want You Back</td>
+    <td>The Jackson 5</td>
+    <td>
+      <a href="https://youtu.be/WszxgSJ2Rpo?si=hsGobX02bxaD2nXS" target="_blank">YouTube</a> /
+      <a href="https://open.spotify.com/track/75EVUbTF5l9VuMHs6AuFgp" target="_blank">Spotify</a> /
+      <a href="https://music.apple.com/jp/album/1440918268?i=1440918274" target="_blank">Apple Music</a> /
+      <a href="https://music.amazon.co.jp/albums/B00BK2GG6O?trackAsin=B00BK2GGR8" target="_blank">Amazon Music</a>
+    </td>
+  </tr>
+  <tr>
+    <td>テーブルラウンド</td>
+    <td>September</td>
+    <td>Earth, Wind & Fire</td>
+    <td>
+      <a href="https://youtu.be/GBQ0KqqdvAc?si=z-jJYgZs0X9vFsiK" target="_blank">YouTube</a> /
+      <a href="https://open.spotify.com/track/2V8GLPZVFrkqR1M0Nq6KHz" target="_blank">Spotify</a> /
+      <a href="https://music.apple.com/jp/album/1440813007?i=1440813017" target="_blank">Apple Music</a> /
+      <a href="https://music.amazon.co.jp/albums/B000QEE1VE?trackAsin=B000QEE4JE" target="_blank">Amazon Music</a>
+    </td>
+  </tr>
+  <tr>
+    <td>記念品贈呈</td>
+    <td>Hometown</td>
+    <td>Sheppard</td>
+    <td>
+      <a href="https://youtu.be/JP3s3x9F1zc?si=7B_3GyUuS27BGY5l" target="_blank">YouTube</a> /
+      <a href="https://open.spotify.com/track/3I9zWtNkNq5qN9f8yNs4OH" target="_blank">Spotify</a> /
+      <a href="https://music.apple.com/jp/album/1092792260?i=1092792491" target="_blank">Apple Music</a> /
+      <a href="https://music.amazon.co.jp/albums/B01LWM5L1E?trackAsin=B01LWM5N2M" target="_blank">Amazon Music</a>
 
-  <h2 style="margin-top: 40px;">プレイリスト</h2>
-  <ul class="playlist-links">
-    <li><a href="https://music.apple.com/jp/playlist/wedding-setlist/pl.u-vxy6k1Ysk3bbrL" target="_blank">Apple Music</a></li>
-    <li><a href="https://open.spotify.com/playlist/your_playlist_link" target="_blank">Spotify</a></li>
-    <li><a href="https://youtube.com/playlist?list=YOUR_LIST_ID" target="_blank">YouTube</a></li>
-  </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>退場</td>
+    <td>Top of the World</td>
+    <td>Carpenters</td>
+    <td>
+      <a href="https://youtu.be/BH2pPiua9zY?si=dvhrmHjKj4-ktI0J" target="_blank">YouTube</a> /
+      <a href="https://open.spotify.com/track/0nJW01T7XtvILxQgC5J7Wh" target="_blank">Spotify</a> /
+      <a href="https://music.apple.com/jp/album/1440833084?i=1440833086" target="_blank">Apple Music</a> /
+      <a href="https://music.amazon.co.jp/albums/B000002B2N?trackAsin=B000002B2O" target="_blank">Amazon Music</a>
+
+    </td>
+  </tr>
+</table>
+
+
+<h2 style="margin-top: 40px;">Playlists</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>YouTube</td>
+      <td><a href="https://youtube.com/playlist?list=PLA1LH3CG6oFNlxuUtzbLJTFa6mf8TD5vZ&si=DgMK_4pKoKNgAXs7" target="_blank">Listen</a></td>
+    </tr>
+    <tr>
+      <td>Apple Music</td>
+      <td><a href="https://music.apple.com/jp/playlist/t-ys-wedding-party-playlist/pl.u-vxy6k1Ysk3bbrL" target="_blank">Listen</a></td>
+    </tr>
+    <tr>
+      <td>Amazon Music</td>
+      <td><a href="https://music.amazon.co.jp/user-playlists/d9d4342150e54080a194ad140d558d5bjajp?ref=dm_sh_4KPlb0WoRJRT88vc2icPcYpGf" target="_blank">Listen</a></td>
+    </tr>
+    <tr>
+      <td>Spotify</td>
+      <td><a href="https://open.spotify.com/playlist/5OTGBswzaU6soztJMsudf3?si=K8JY0CijS4-uJbHrWuiHOA&pi=a4O8s0qfRpucA&nd=1&dlsi=c8547dc85a0d42e1" target="_blank">Listen</a></td>
+    </tr>
+  </tbody>
+</table>
+
+
 
   <p style="margin-top: 30px;">
-    今後とも私たちふたりを　どうぞよろしくお願いいたします
+    今後とも私たちふたりを どうぞよろしくお願いいたします
   </p>
 </div>
 
