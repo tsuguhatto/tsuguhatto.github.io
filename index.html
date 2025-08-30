@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Wedding Party Setlist</title>
+  <title>T&Y Wedding</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Work+Sans:wght@300;500&display=swap" rel="stylesheet">
@@ -13,14 +13,23 @@
       --text-color: #333;
     }
 
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: 'Work Sans', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      position: relative;
       overflow-x: hidden;
     }
 
+    
     .icon-overlay {
       position: fixed;
       top: 0;
@@ -41,18 +50,6 @@
       100% { opacity: 0; visibility: hidden; }
     }
 
-    .top-left-image, .top-right-image {
-      position: absolute;
-      top: 20px;
-      width: 300px;
-      height: auto;
-      z-index: 1;
-      opacity: 0;
-      animation: fadeInPage 2s ease 1.5s forwards;
-    }
-    .top-left-image { left: 20px; }
-    .top-right-image { right: 20px; }
-
     .container {
       max-width: 1000px;
       margin: 0 auto;
@@ -67,17 +64,56 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    .hidden { display: none; }
+
+    .container {
+      max-width: 1000px;
+      padding: 20px;
+      width: 90%;
+    }
+
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: var(--main-color);
       margin-bottom: 0.5em;
     }
 
     p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       line-height: 1.8;
+      margin-bottom: 1em;
     }
+
+    .icon {
+      width: 150px;
+      margin: 20px auto;
+      display: block;
+    }
+
+    /* カウントダウン */
+    .countdown {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--main-color);
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .countdown div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .countdown span.label {
+      font-size: 0.8rem;
+      color: var(--text-color);
+    }
+
+    
 
     table {
       width: 100%;
@@ -105,19 +141,49 @@
     td a:hover { text-decoration: underline; }
 
     @media (max-width: 600px) {
-      h1 { font-size: 1.6rem; }
+      h1 { font-size: 1.8rem; }
+      .countdown { font-size: 1.4rem; gap: 10px; }
+      .icon { width: 100px; }
       table { font-size: 0.8rem; }
-      .top-left-image, .top-right-image { width: 100px; top: 15px; }
     }
+
+
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+
   </style>
 </head>
 <body>
-
-<img src="icon.png" alt="icon" class="top-left-image">
-<img src="icon.png" alt="icon" class="top-right-image">
+  
 <div class="icon-overlay"></div>
 
 <div class="container">
+
+  <!-- Coming Soon セクション -->
+  <div id="coming-soon">
+    <img src="icon.png" alt="T&Y Icon" class="icon">
+    <h1>Coming Soon</h1>
+    <p>披露宴が終わったら このページが公開されます<br>楽しみに待っていてください！</p>
+
+    <div class="countdown">
+      <div><span id="days">0</span><span class="label">Days</span></div>
+      <div><span id="hours">0</span><span class="label">Hours</span></div>
+      <div><span id="minutes">0</span><span class="label">Minutes</span></div>
+      <div><span id="seconds">0</span><span class="label">Seconds</span></div>
+    </div>
+  </div>
+
+  <!-- Wedding Playlist セクション -->
+  <div id="wedding-playlist" class="hidden">
   <h1>T&Y’s Wedding Party Playlist</h1>
   <p>
     本日は私たちの結婚式にご出席いただき 誠にありがとうございました<br>
@@ -363,6 +429,72 @@
     今後とも私たちふたりを どうぞよろしくお願いいたします
   </p>
 </div>
+
+<script>
+  const comingSoon = document.getElementById("coming-soon");
+  const playlist = document.getElementById("wedding-playlist");
+
+  // 公開日を日本時間で設定（例：2025年9月13日19:00）
+  const weddingDate = new Date("2025-08-31T00:30:00+09:00");
+
+function showPlaylist() {
+  // 1. フェードアウト
+  comingSoon.classList.add("fade-out");
+
+  setTimeout(() => {
+    // 2. 完全非表示にして、表示したい要素を display:block に
+    comingSoon.classList.add("hidden");
+    playlist.classList.remove("hidden");
+
+    // 3. ここで強制的に reflow させてから opacity を変える
+    playlist.offsetWidth; // これでブラウザに変化を認識させる
+
+    // 4. フェードイン開始
+    playlist.classList.add("fade-in");
+  }, 1000);
+}
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = weddingDate - now;
+
+    if (diff <= 0) {
+      showPlaylist();
+      clearInterval(countdownInterval);
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+  }
+
+  // ページ読み込み時に即チェック
+  const now = new Date();
+  if (now >= weddingDate) {
+    showPlaylist();
+  } else {
+    updateCountdown();
+    var countdownInterval = setInterval(updateCountdown, 1000);
+  }
+
+
+  // 既存のカウントダウン処理の最後に追加
+  // 例えば、最後の行（window.onload 直後など）に追加
+  window.addEventListener("load", () => {
+    const overlay = document.querySelector(".icon-overlay");
+    setTimeout(() => {
+      overlay.style.display = "none";
+    }, 2000); // CSSアニメーションと同じ2秒
+  });
+</script>
+
 
 </body>
 </html>
