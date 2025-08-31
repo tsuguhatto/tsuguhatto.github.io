@@ -2,9 +2,8 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>T&Y Wedding</title>
+  <title>T&Y’s Wedding Party Playlist</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Work+Sans:wght@300;500&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -12,22 +11,130 @@
       --bg-color: #fef5f5;
       --text-color: #333;
     }
-
-    * { box-sizing: border-box; }
-
     body {
       margin: 0;
       font-family: 'Work Sans', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      text-align: center;
-      position: relative;
-      overflow-x: hidden;
     }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--main-color);
+      margin-bottom: 0.5em;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin: 20px 0;
+      text-align: left;
+    }
+    .scene { font-size: 0.85rem; font-weight: bold; color: #555; margin-bottom: 5px; }
+    .title { font-size: 1.2rem; margin-bottom: 2px; }
+    .artist { font-size: 1rem; color: #666; margin-bottom: 10px; }
+    .links a { display: inline-block; margin-right: 12px; transition: transform 0.2s; }
+    .links a img { width: 32px; height: 32px; }
+    .links a:hover { transform: scale(1.3); }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.6rem; }
+      .title { font-size: 1.1rem; }
+      .artist { font-size: 0.9rem; }
+      .links a img { width: 28px; height: 28px; }
+    }
+  </style>
+
+
+
+
+
+
+<style>
+.scroll-cards {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding: 16px 0;
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-cards::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scroll-cards::-webkit-scrollbar-thumb {
+  background: #d98c9d;
+  border-radius: 4px;
+}
+
+.card {
+  flex: 0 0 auto;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  min-width: 180px;
+  text-align: center;
+  scroll-snap-align: start;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+
+
+.icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 8px;
+  border-radius: 50%;
+}
+
+.icon1 {
+  width: 200px;
+  height: 200x;
+  object-fit: contain;
+  margin-bottom: 8px;
+  border-radius: 50%;
+}
+
+.service {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #d98c9d;
+}
+
+.link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  border: 1px solid #d98c9d;
+  padding: 6px 12px;
+  border-radius: 12px;
+  display: inline-block;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.link:hover {
+  background-color: #d98c9d;
+  color: #fff;
+}
+
+
 
     
     .icon-overlay {
@@ -56,7 +163,7 @@
       margin: 0 auto;
       padding: 80px 20px 40px;
       text-align: center;
-      animation: fadeInPage 3s ease 2s both;
+      animation: fadeInPage 2.5s ease 2s both;
       position: relative;
     }
 
@@ -86,11 +193,7 @@
       margin-bottom: 1em;
     }
 
-    .icon {
-      width: 150px;
-      margin: 20px auto;
-      display: block;
-    }
+
 
     /* カウントダウン */
     .countdown {
@@ -161,19 +264,140 @@
 }
 
 
-  </style>
+.service-playlist .header {
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.service-playlist h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #d98c9d;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.service-playlist p {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1rem;
+  color: #555;
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+
+.service-playlist .underline {
+  width: 60px;
+  height: 3px;
+  background-color: #d98c9d;
+  margin: 0 auto;
+  border-radius: 2px;
+  animation: slideIn 1s ease;
+}
+
+@keyframes slideIn {
+  0% { width: 0; opacity: 0; }
+  100% { width: 60px; opacity: 1; }
+}
+
+
+#wedding-playlist h1 {
+  margin-bottom: 16px; /* 下に余白 */
+}
+
+#wedding-playlist p {
+  margin-bottom: 40px; /* 下に大きめの余白でサービスセクションと分離 */
+}
+
+.service-playlist {
+  padding-top: 40px;  /* 上部のスペース */
+  background-color: #fff9f9; /* 背景色でセクションを分ける */
+  border-radius: 16px;        /* 角丸で柔らかい印象 */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+
+
+.all-songs .card {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.all-songs .card .links {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+}
+
+.all-songs .card .scene {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #d26991; /* 薄いピンクでアクセント */
+}
+
+.all-songs .card .title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.all-songs .card .artist {
+  font-size: 14px;
+  color: #555;
+}
+
+.song-intro {
+  margin-bottom: 16px;
+}
+
+.song-intro h3 {
+  font-size: 20px;
+  color: #d26991;
+  margin-bottom: 4px;
+}
+
+.song-intro p {
+  font-size: 14px;
+  color: #555;
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
 <body>
-  
+
 <div class="icon-overlay"></div>
+
 
 <div class="container">
 
+
   <!-- Coming Soon セクション -->
   <div id="coming-soon">
-    <img src="icon.png" alt="T&Y Icon" class="icon">
+    <img src="icon.png" alt="T&Y Icon" class="icon1">
     <h1>Coming Soon</h1>
-    <p>披露宴が終わったら このページが公開されます<br>楽しみに待っていてください！</p>
+    <p>披露宴が終わったらこのページが公開されます<br>楽しみに待っていてください！</p>
 
     <div class="countdown">
       <div><span id="days">0</span><span class="label">Days</span></div>
@@ -183,253 +407,283 @@
     </div>
   </div>
 
+
   <!-- Wedding Playlist セクション -->
   <div id="wedding-playlist" class="hidden">
+
   <h1>T&Y’s Wedding Party Playlist</h1>
-  <p>
-    本日は私たちの結婚式にご出席いただき 誠にありがとうございました<br>
-    大切な皆さまと過ごしたひとときは 私たちにとってかけがえのない宝物です<br>
-    式の中で流れた音楽を 思い出とともにぜひお楽しみください
-  </p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Service</th>
-      <th>Link</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>YouTube</td>
-      <td><a href="https://youtube.com/playlist?list=PLA1LH3CG6oFNlxuUtzbLJTFa6mf8TD5vZ&si=DgMK_4pKoKNgAXs7" target="_blank">Listen</a></td>
-    </tr>
-    <tr>
-      <td>Spotify</td>
-      <td><a href="https://open.spotify.com/playlist/5OTGBswzaU6soztJMsudf3?si=K8JY0CijS4-uJbHrWuiHOA&pi=a4O8s0qfRpucA&nd=1&dlsi=c8547dc85a0d42e1" target="_blank">Listen</a></td>
-    </tr>
-    <tr>
-      <td>Apple Music</td>
-      <td><a href="https://music.apple.com/jp/playlist/t-ys-wedding-party-playlist/pl.u-vxy6k1Ysk3bbrL" target="_blank">Listen</a></td>
-    </tr>
-    <tr>
-      <td>Amazon Music</td>
-      <td><a href="https://music.amazon.co.jp/user-playlists/d9d4342150e54080a194ad140d558d5bjajp?ref=dm_sh_4KPlb0WoRJRT88vc2icPcYpGf" target="_blank">Listen</a></td>
-    </tr>
-
-  </tbody>
-</table>
+  <p>ご列席いただきありがとうございました！<br>
+     披露宴で流れた音楽をお楽しみください♪</p>
 
 
 
 
-<table>
-  <tr>
-    <th>Scene</th>
-    <th>Title</th>
-    <th>Artist</th>
-    <th>Link</th>
-  </tr>
-  <tr>
-    <td>オープニングムービー</td>
-    <td>はじめてのチュウ</td>
-    <td>Platica Jazz</td>
-    <td>
-      <a href="https://youtu.be/gdV7jLIvws8?si=KdWKtO0TdPn62zIW" target="_blank">YouTube</a> /
-      <a href="https://open.spotify.com/track/2sIiLOvj2A5zOmua1bTywX?si=udrSY4zIQECjSNi50YEF3w" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/album/399592162?i=399592163" target="_blank">Apple Music</a> /
-      <a href="https://music.amazon.co.jp/albums/B00BUUWE76?trackAsin=B00BUUWEPI" target="_blank">Amazon Music</a>
-    </td>
-  </tr>
-  <tr>
-    <td>入場</td>
-    <td>Ob-La-Di, Ob-La-Da</td>
-    <td>The Beatles</td>
-    <td>
-      <a href="https://youtu.be/_J9NpHKrKMw?si=t5qxUJ3Z7NsFRm-q" target="_blank">YouTube</a> /
-      <a href="https://open.spotify.com/track/3danaswvdD7sSz1ERKNfxh" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/album/1441133100?i=1441133282" target="_blank">Apple Music</a> /
-      <a href="https://music.amazon.co.jp/albums/B0CLGTZW4H?trackAsin=B0CLGY5NP7" target="_blank">Amazon Music</a>
-    </td>
-  </tr>
-  <tr>
-    <td>乾杯</td>
-    <td>Sugar</td>
-    <td>Maroon 5</td>
-    <td>
-      <a href="https://youtu.be/09R8_2nJtjg?si=3kbdyGf1PYYHYGbl" target="_blank">YouTube</a> /
-      <a href="https://open.spotify.com/track/6eV7eK07znOHcKz3bzEmpS" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/album/1440826252?i=1440826558" target="_blank">Apple Music</a> /
-      <a href="https://music.amazon.co.jp/albums/B011N17GJW?trackAsin=B011N17S72" target="_blank">Amazon Music</a>
-    </td>
-  </tr>
-  <tr>
-    <td>ケーキ入刀</td>
-    <td>Paper Rings</td>
-    <td>Taylor Swift</td>
-    <td>
-      <a href="https://youtu.be/8zdg-pDF10g?si=5MRBjDREWxE6hJbF" target="_blank">YouTube</a> /
-      <a href="https://open.spotify.com/track/4y5bvROuBDPr5fuwXbIBZR" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/album/1468058165?i=1468058181" target="_blank">Apple Music</a> /
-      <a href="https://music.amazon.co.jp/albums/B07SYZCMXC?trackAsin=B07SYZWV3G" target="_blank">Amazon Music</a>
-    </td>
-  </tr>
-  <tr>
-    <td>新婦中座</td>
-    <td>Another Day Of Sun</td>
-    <td>La La Land Cast</td>
-    <td>
-      <a href="https://open.spotify.com/track/7tBqAoOhF7rxWbIpT2yOn6" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/album/1440895872?i=1440895879" target="_blank">Apple Music</a> /
-      <a href="https://music.amazon.co.jp/albums/B06WGLRS8W?trackAsin=B06W9FBLQ2" target="_blank">Amazon Music</a>
-    </td>
-  </tr>
-  <tr>
-    <td>新郎中座</td>
-    <td>You’ve Got a Friend in Me</td>
-    <td>Randy Newman</td>
-    <td>
-      <a href="https://youtu.be/0hG-2tQtdlE?si=heASMTICNGivB0ia" target="_blank">YouTube</a> /
-      <a href="https://open.spotify.com/track/2stkLJ0JNcXkIRDNF3ld6c" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/album/1452873008?i=1452873021" target="_blank">Apple Music</a> /
-      <a href="https://music.amazon.co.jp/albums/B07PR3ZNS5?trackAsin=B07PPZNYS8" target="_blank">Amazon Music</a>
-    </td>
-  </tr>
-  <tr>
-    <td>プロフィールムービー</td>
-    <td>Saturday in the Park</td>
-    <td>Chicago</td>
-    <td>
-      <a href="https://youtu.be/HjylD7esXDo?si=D_XY4sOiL9ZyjAVH" target="_blank">YouTube</a> /
-      <a href="https://open.spotify.com/track/4OJFkrRQqol4FsPesF8eu4" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/album/28055262?i=28055282" target="_blank">Apple Music</a> /
-      <a href="https://music.amazon.co.jp/albums/B009ZFPAI8?trackAsin=B009ZFPIB2" target="_blank">Amazon Music</a>
-    </td>
-  </tr>
-  <tr>
-    <td>再入場</td>
-    <td>Les Champs-Elysées</td>
-    <td>Joe Dassin</td>
-    <td>
-      <a href="https://youtu.be/tDWeLlvYyYU?si=5UD9uI34FYb0R2lR" target="_blank">YouTube</a> /
-      <a href="https://open.spotify.com/track/4VWbPQUPvLes814r6T11Jz" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/album/311331439?i=311331447" target="_blank">Apple Music</a> /
-      <a href="https://music.amazon.co.jp/albums/B076P5BXLR?trackAsin=B076P42T77" target="_blank">Amazon Music</a>
-    </td>
-  </tr>
-  <tr>
-    <td>ドレス当てクイズ</td>
-    <td>おジャ魔女カーニバル!!</td>
-    <td>MAHO堂</td>
-    <td>
-      <a href="https://youtu.be/i3mzMFy3dBg?si=VcQ3PXor9djkiJfK" target="_blank">YouTube</a> /
-      <a href="https://open.spotify.com/track/63CbmTcrmJlFYSehryyG48" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/album/1537920833?i=1537920834" target="_blank">Apple Music</a>
-    </td>
-  </tr>
-  <tr>
-    <td>テーブルラウンド</td>
-    <td>Wouldn’t It Be Nice</td>
-    <td>The Beach Boys</td>
-    <td>
-      <a href="https://youtu.be/5lP8BZcyoEQ?si=mMuQ-d3KVjyPqZbA" target="_blank">YouTube</a> /
-      <a href="https://open.spotify.com/track/4IHc6SzGPnzSPuHVEPzpJc" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/album/1567705492?i=1567706782" target="_blank">Apple Music</a> /
-      <a href="https://music.amazon.co.jp/albums/B0045ORHJY?trackAsin=B0045OTG3E" target="_blank">Amazon Music</a>
-    </td>
-  </tr>
-  <tr>
-    <td>テーブルラウンド</td>
-    <td>Cheeze</td>
-    <td>Sarah Kang, Andrew Kang</td>
-    <td>
-      <a href="https://youtu.be/VYJAXO_1p40?si=p_xHdmpTgKbi88JX" target="_blank">YouTube</a> /
-      <a href="https://open.spotify.com/track/6JQfQXQ2xdZD6x516xNRJI" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/album/1607309517?i=1607309520" target="_blank">Apple Music</a> /
-      <a href="https://music.amazon.co.jp/albums/B0BFTFBVZ7?trackAsin=B0BFVGXY43" target="_blank">Amazon Music</a>
-    </td>
-  </tr>
-  <tr>
-    <td>テーブルラウンド</td>
-    <td>I Want You Back</td>
-    <td>The Jackson 5</td>
-    <td>
-      <a href="https://youtu.be/WszxgSJ2Rpo?si=hsGobX02bxaD2nXS" target="_blank">YouTube</a> /
-      <a href="https://open.spotify.com/track/75EVUbTF5l9VuMHs6AuFgp" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/album/1440918268?i=1440918274" target="_blank">Apple Music</a> /
-      <a href="https://music.amazon.co.jp/albums/B00BK2GG6O?trackAsin=B00BK2GGR8" target="_blank">Amazon Music</a>
-    </td>
-  </tr>
-  <tr>
-    <td>テーブルラウンド</td>
-    <td>September</td>
-    <td>Earth, Wind & Fire</td>
-    <td>
-      <a href="https://youtu.be/OBM0DO8Xt1c?si=my8T7bGTft30V3bj" target="_blank">YouTube</a> /
-      <a href="https://open.spotify.com/track/2grjqo0Frpf2okIBiifQKs" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/song/%E3%82%BB%E3%83%97%E3%83%86%E3%83%B3%E3%83%90%E3%83%BC/1372947834" target="_blank">Apple Music</a> /
-      <a href="https://music.amazon.co.jp/albums/B076N1LVLK?trackAsin=B076N11V3C" target="_blank">Amazon Music</a>
-    </td>
-  </tr>
-    <tr>
-    <td>テーブルラウンド</td>
-    <td>Happy</td>
-    <td>Pharrell Williams</td>
-    <td>
-      <a href="https://youtu.be/ZbZSe6N_BXs?si=UMmTlbm1-hnoJFeS" target="_blank">YouTube</a> /
-      <a href="https://open.spotify.com/track/60nZcImufyMA1MKQY3dcCH" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/song/%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC-from-despicable-me-2/863835363" target="_blank">Apple Music</a> /
-      <a href="https://music.amazon.co.jp/albums/B0773ZC2BV?trackAsin=B0773VR5PK" target="_blank">Amazon Music</a>
-    </td>
-  </tr>
-  <tr>
-    <td>記念品贈呈</td>
-    <td>Hometown</td>
-    <td>Sheppard</td>
-    <td>
-      <a href="https://youtu.be/eeOgF3K3ekg?si=CEXr82mOdlOgX8WA" target="_blank">YouTube</a> /
-      <a href="https://open.spotify.com/track/4fCFuTPTLIh59R71vNKOkQ" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/song/hometown/1368415292" target="_blank">Apple Music</a> /
-      <a href="https://music.amazon.co.jp/albums/B07DFV3J1F?trackAsin=B07DFVTXND" target="_blank">Amazon Music</a>
+<section class="service-playlist">
+  <div class="header">
+    <h3>Listen on Your Favorite Service</h3>
+    <div class="underline"></div>
+  </div>
 
-    </td>
-  </tr>
-  <tr>
-    <td>退場</td>
-    <td>Top of the World</td>
-    <td>Carpenters</td>
-    <td>
-      <a href="https://youtu.be/vupwAFMXLkA?si=Dhm490bb0zcZsLXL" target="_blank">YouTube</a> /
-      <a href="https://open.spotify.com/track/5ee20xB17u8TX7IUWDNed6" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/song/%E3%83%88%E3%83%83%E3%83%97-%E3%82%AA%E3%83%96-%E3%82%B6-%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89/1413927863" target="_blank">Apple Music</a> /
-      <a href="https://music.amazon.co.jp/albums/B07FP44GWK?trackAsin=B07FP6FTKN" target="_blank">Amazon Music</a>
-
-    </td>
-  </tr>
-
-
-    <tr>
-    <td>エンディングムービー</td>
-    <td>Perfect</td>
-    <td>Ed Sheeran</td>
-    <td>
-      <a href="https://youtu.be/2Vv-BfVoq4g?si=WVUGO_2Eoy1wRHVN" target="_blank">YouTube</a> /
-      <a href="https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v" target="_blank">Spotify</a> /
-      <a href="https://music.apple.com/jp/song/perfect/1193701400" target="_blank">Apple Music</a> /
-      <a href="https://music.amazon.co.jp/albums/B01MU9F3XN?trackAsin=B01NBTFUHE" target="_blank">Amazon Music</a>
-
-    </td>
-  </tr>
-</table>
-
-
-
-
-
-  <p style="margin-top: 30px;">
-    今後とも私たちふたりを どうぞよろしくお願いいたします
-  </p>
+<div class="scroll-cards">
+  <div class="card">
+    <img src="youtube-icon.png" alt="YouTube" class="icon">
+    <div class="service">YouTube</div>
+    <a href="https://youtube.com/playlist?list=PLA1LH3CG6oFNlxuUtzbLJTFa6mf8TD5vZ&si=DgMK_4pKoKNgAXs7" target="_blank" class="link">Listen</a>
+  </div>
+  <div class="card">
+    <img src="spotify-icon.png" alt="Spotify" class="icon">
+    <div class="service">Spotify</div>
+    <a href="https://open.spotify.com/playlist/5OTGBswzaU6soztJMsudf3?si=K8JY0CijS4-uJbHrWuiHOA&pi=a4O8s0qfRpucA&nd=1&dlsi=c8547dc85a0d42e1" target="_blank" class="link">Listen</a>
+  </div>
+  <div class="card">
+    <img src="applemusic-icon.png" alt="Apple Music" class="icon">
+    <div class="service">Apple Music</div>
+    <a href="https://music.apple.com/jp/playlist/t-ys-wedding-party-playlist/pl.u-vxy6k1Ysk3bbrL" target="_blank" class="link">Listen</a>
+  </div>
+  <div class="card">
+    <img src="amazonmusic-icon.png" alt="Amazon Music" class="icon">
+    <div class="service">Amazon Music</div>
+    <a href="https://music.amazon.co.jp/user-playlists/d9d4342150e54080a194ad140d558d5bjajp?ref=dm_sh_4KPlb0WoRJRT88vc2icPcYpGf" target="_blank" class="link">Listen</a>
+  </div>
 </div>
+
+
+
+
+
+
+
+<section class="service-playlist">
+  <div class="header">
+    <h3>Song List</h3>
+    <div class="underline"></div>
+  </div>
+
+
+
+
+  <!-- 全曲カード -->
+  <!-- 1 -->
+  <div class="card">
+    <div class="scene">オープニングムービー</div>
+    <div class="title">はじめてのチュウ</div>
+    <div class="artist">Platica Jazz</div>
+    <div class="links">
+      <a href="https://youtu.be/gdV7jLIvws8?si=KdWKtO0TdPn62zIW" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/track/2sIiLOvj2A5zOmua1bTywX?si=udrSY4zIQECjSNi50YEF3w" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/album/399592162?i=399592163" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+      <a href="https://music.amazon.co.jp/albums/B00BUUWE76?trackAsin=B00BUUWEPI" target="_blank"><img src="amazonmusic-icon.png" alt="Amazon Music"></a>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="card">
+    <div class="scene">入場</div>
+    <div class="title">Ob-La-Di, Ob-La-Da</div>
+    <div class="artist">The Beatles</div>
+    <div class="links">
+      <a href="https://youtu.be/_J9NpHKrKMw?si=t5qxUJ3Z7NsFRm-q" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/track/3danaswvdD7sSz1ERKNfxh" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/album/1441133100?i=1441133282" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+      <a href="https://music.amazon.co.jp/albums/B0CLGTZW4H?trackAsin=B0CLGY5NP7" target="_blank"><img src="amazonmusic-icon.png" alt="Amazon Music"></a>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="card">
+    <div class="scene">乾杯</div>
+    <div class="title">Sugar</div>
+    <div class="artist">Maroon 5</div>
+    <div class="links">
+      <a href="https://youtu.be/09R8_2nJtjg?si=3kbdyGf1PYYHYGbl" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/track/6eV7eK07znOHcKz3bzEmpS" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/album/1440826252?i=1440826558" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+      <a href="https://music.amazon.co.jp/albums/B011N17GJW?trackAsin=B011N17S72" target="_blank"><img src="amazonmusic-icon.png" alt="Amazon Music"></a>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="card">
+    <div class="scene">ケーキ入刀</div>
+    <div class="title">Paper Rings</div>
+    <div class="artist">Taylor Swift</div>
+    <div class="links">
+      <a href="https://youtu.be/8zdg-pDF10g?si=5MRBjDREWxE6hJbF" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/track/4y5bvROuBDPr5fuwXbIBZR" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/album/1468058165?i=1468058181" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+      <a href="https://music.amazon.co.jp/albums/B07SYZCMXC?trackAsin=B07SYZWV3G" target="_blank"><img src="amazonmusic-icon.png" alt="Amazon Music"></a>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="card">
+    <div class="scene">新婦中座</div>
+    <div class="title">Another Day Of Sun</div>
+    <div class="artist">La La Land Cast</div>
+    <div class="links">
+      <a href="https://open.spotify.com/track/7tBqAoOhF7rxWbIpT2yOn6" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/album/1440895872?i=1440895879" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+      <a href="https://music.amazon.co.jp/albums/B06WGLRS8W?trackAsin=B06W9FBLQ2" target="_blank"><img src="amazonmusic-icon.png" alt="Amazon Music"></a>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="card">
+    <div class="scene">新郎中座</div>
+    <div class="title">You’ve Got a Friend in Me</div>
+    <div class="artist">Randy Newman</div>
+    <div class="links">
+      <a href="https://youtu.be/0hG-2tQtdlE?si=heASMTICNGivB0ia" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/track/2stkLJ0JNcXkIRDNF3ld6c" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/album/1452873008?i=1452873021" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+      <a href="https://music.amazon.co.jp/albums/B07PR3ZNS5?trackAsin=B07PPZNYS8" target="_blank"><img src="amazonmusic-icon.png" alt="Amazon Music"></a>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="card">
+    <div class="scene">プロフィールムービー</div>
+    <div class="title">Saturday in the Park</div>
+    <div class="artist">Chicago</div>
+    <div class="links">
+      <a href="https://youtu.be/HjylD7esXDo?si=D_XY4sOiL9ZyjAVH" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/track/4OJFkrRQqol4FsPesF8eu4" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/album/28055262?i=28055282" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+      <a href="https://music.amazon.co.jp/albums/B009ZFPAI8?trackAsin=B009ZFPIB2" target="_blank"><img src="amazonmusic-icon.png" alt="Amazon Music"></a>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="card">
+    <div class="scene">再入場</div>
+    <div class="title">Les Champs-Elysées</div>
+    <div class="artist">Joe Dassin</div>
+    <div class="links">
+      <a href="https://youtu.be/tDWeLlvYyYU?si=5UD9uI34FYb0R2lR" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/track/4VWbPQUPvLes814r6T11Jz" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/album/311331439?i=311331447" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+      <a href="https://music.amazon.co.jp/albums/B076P5BXLR?trackAsin=B076P42T77" target="_blank"><img src="amazonmusic-icon.png" alt="Amazon Music"></a>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="card">
+    <div class="scene">ドレス当てクイズ</div>
+    <div class="title">おジャ魔女カーニバル!!</div>
+    <div class="artist">MAHO堂</div>
+    <div class="links">
+      <a href="https://youtu.be/i3mzMFy3dBg?si=VcQ3PXor9djkiJfK" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/track/63CbmTcrmJlFYSehryyG48" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/album/1537920833?i=1537920834" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="card">
+    <div class="scene">テーブルラウンド</div>
+    <div class="title">Wouldn’t It Be Nice</div>
+    <div class="artist">The Beach Boys</div>
+    <div class="links">
+      <a href="https://youtu.be/5lP8BZcyoEQ?si=mMuQ-d3KVjyPqZbA" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/track/4IHc6SzGPnzSPuHVEPzpJc" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/album/1567705492?i=1567706782" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+      <a href="https://music.amazon.co.jp/albums/B0045ORHJY?trackAsin=B0045OTG3E" target="_blank"><img src="amazonmusic-icon.png" alt="Amazon Music"></a>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="card">
+    <div class="scene">テーブルラウンド</div>
+    <div class="title">Cheeze</div>
+    <div class="artist">Sarah Kang, Andrew Kang</div>
+    <div class="links">
+      <a href="https://youtu.be/VYJAXO_1p40?si=p_xHdmpTgKbi88JX" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/track/6JQfQXQ2xdZD6x516xNRJI" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/album/1607309517?i=1607309520" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+      <a href="https://music.amazon.co.jp/albums/B0BFTFBVZ7?trackAsin=B0BFVGXY43" target="_blank"><img src="amazonmusic-icon.png" alt="Amazon Music"></a>
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="card">
+    <div class="scene">テーブルラウンド</div>
+    <div class="title">I Want You Back</div>
+    <div class="artist">The Jackson 5</div>
+    <div class="links">
+      <a href="https://youtu.be/WszxgSJ2Rpo?si=hsGobX02bxaD2nXS" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/track/75EVUbTF5l9VuMHs6AuFgp" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/album/1440918268?i=1440918274" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+      <a href="https://music.amazon.co.jp/albums/B00BK2GG6O?trackAsin=B00BK2GGR8" target="_blank"><img src="amazonmusic-icon.png" alt="Amazon Music"></a>
+    </div>
+  </div>
+
+  <!-- 13 -->
+  <div class="card">
+    <div class="scene">テーブルラウンド</div>
+    <div class="title">September</div>
+    <div class="artist">Earth, Wind & Fire</div>
+    <div class="links">
+      <a href="https://youtu.be/OBM0DO8Xt1c?si=my8T7bGTft30V3bj" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/track/2grjqo0Frpf2okIBiifQKs" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/song/%E3%82%BB%E3%83%97%E3%83%86%E3%83%B3%E3%83%90%E3%83%BC/1372947834" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+      <a href="https://music.amazon.co.jp/albums/B076N1LVLK?trackAsin=B076N11V3C" target="_blank"><img src="amazonmusic-icon.png" alt="Amazon Music"></a>
+    </div>
+  </div>
+
+  <!-- 14 -->
+  <div class="card">
+    <div class="scene">テーブルラウンド</div>
+    <div class="title">Happy</div>
+    <div class="artist">Pharrell Williams</div>
+    <div class="links">
+      <a href="https://youtu.be/ZbZSe6N_BXs?si=Qqg3bzQz1nmI1Xx9" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/track/60nZcImufyMA1MKQY3dcCH" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/album/happy/1440833096?i=1440833098" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+      <a href="https://music.amazon.co.jp/albums/B00G7XQ4IG?trackAsin=B00G7XQX6S" target="_blank"><img src="amazonmusic-icon.png" alt="Amazon Music"></a>
+    </div>
+  </div>
+
+  <!-- 15 -->
+  <div class="card">
+    <div class="scene">記念品贈呈</div>
+    <div class="title">Hometownd</div>
+    <div class="artist">Sheppard</div>
+    <div class="links">
+      <a href="https://youtu.be/eeOgF3K3ekg?si=CEXr82mOdlOgX8WA" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/track/4fCFuTPTLIh59R71vNKOkQ" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/song/hometown/1368415292" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+      <a href="https://music.amazon.co.jp/albums/B07DFV3J1F?trackAsin=B07DFVTXND" target="_blank"><img src="amazonmusic-icon.png" alt="Amazon Music"></a>
+    </div>
+  </div>
+
+  <!-- 16 -->
+  <div class="card">
+    <div class="scene">退場</div>
+    <div class="title">Top of the World</div>
+    <div class="artist">Carpenters</div>
+    <div class="links">
+      <a href="https://youtu.be/vupwAFMXLkA?si=Dhm490bb0zcZsLXL" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/track/5ee20xB17u8TX7IUWDNed6" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/song/%E3%83%88%E3%83%83%E3%83%97-%E3%82%AA%E3%83%96-%E3%82%B6-%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89/1413927863" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+      <a href="https://music.amazon.co.jp/albums/B07FP44GWK?trackAsin=B07FP6FTKN" target="_blank"><img src="amazonmusic-icon.png" alt="Amazon Music"></a>
+    </div>
+  </div>
+
+  <!-- 17 -->
+  <div class="card">
+    <div class="scene">エンディングムービー</div>
+    <div class="title">Perfect</div>
+    <div class="artist">Ed Sheeran</div>
+    <div class="links">
+      <a href="https://youtu.be/2Vv-BfVoq4g?si=WVUGO_2Eoy1wRHVN" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
+      <a href="https://music.apple.com/jp/song/perfect/1193701400" target="_blank"><img src="applemusic-icon.png" alt="Apple Music"></a>
+      <a href="https://music.amazon.co.jp/albums/B01MU9F3XN?trackAsin=B01NBTFUHE" target="_blank"><img src="amazonmusic-icon.png" alt="Amazon Music"></a>
+    </div>
+  </div>
+</div>
+
+
 
 <script>
   const comingSoon = document.getElementById("coming-soon");
@@ -496,7 +750,5 @@ function showPlaylist() {
   });
 </script>
 
-
 </body>
 </html>
-
